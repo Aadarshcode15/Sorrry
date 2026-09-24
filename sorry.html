@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>I'm sorry 🧸💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #ffd6e5;
+      --bg2: #fff1f6;
+      --card: rgba(255, 255, 255, .82);
+      --ink: #5b2a41;
+      --soft: #9a5c75;
+      --pink: #ff4f86;
+      --pink2: #ff8fb3;
+      --line: #ffc2d8;
+      --shadow: rgba(255, 79, 134, .25);
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --bg1: #3a1526;
+        --bg2: #24101a;
+        --card: rgba(66, 28, 46, .82);
+        --ink: #ffe3ee;
+        --soft: #e7aac2;
+        --line: #6d3049;
+        --shadow: rgba(0, 0, 0, .4);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg1: #3a1526;
+      --bg2: #24101a;
+      --card: rgba(66, 28, 46, .82);
+      --ink: #ffe3ee;
+      --soft: #e7aac2;
+      --line: #6d3049;
+      --shadow: rgba(0, 0, 0, .4);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: linear-gradient(160deg, var(--bg1), var(--bg2));
+      color: var(--ink);
+      font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px
+    }
+
+    #bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0
+    }
+
+    #bg span {
+      position: absolute;
+      bottom: -40px;
+      opacity: .55;
+      animation: rise linear infinite
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(-115vh) rotate(25deg)
+      }
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      text-align: center
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid var(--line);
+      border-radius: 32px;
+      padding: 28px 22px;
+      box-shadow: 0 14px 40px var(--shadow)
+    }
+
+    .bear {
+      font-size: 76px;
+      line-height: 1;
+      display: inline-block;
+      animation: sway 2.6s ease-in-out infinite
+    }
+
+    @keyframes sway {
+
+      0%,
+      100% {
+        transform: rotate(-6deg) translateY(0)
+      }
+
+      50% {
+        transform: rotate(6deg) translateY(-6px)
+      }
+    }
+
+    h1 {
+      font-family: 'Pacifico', 'Segoe Script', cursive;
+      font-weight: 400;
+      font-size: clamp(30px, 9vw, 42px);
+      margin: 10px 0 6px;
+      color: var(--pink);
+      line-height: 1.25
+    }
+
+    .msg {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--soft);
+      margin: 0 0 18px;
+      min-height: 3.2em
+    }
+
+    .tears {
+      font-size: 22px;
+      letter-spacing: 6px
+    }
+
+    ul {
+      list-style: none;
+      margin: 16px 0 22px;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      text-align: left
+    }
+
+    li {
+      background: var(--bg2);
+      border: 2px dashed var(--line);
+      border-radius: 18px;
+      padding: 11px 14px;
+      font-size: 16px;
+      line-height: 1.4
+    }
+
+    h2 {
+      font-size: 21px;
+      margin: 6px 0 14px
+    }
+
+    .btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 76px
+    }
+
+    button {
+      font: inherit;
+      font-weight: 700;
+      font-size: 18px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 26px;
+      cursor: pointer;
+      transition: transform .25s ease;
+      touch-action: manipulation
+    }
+
+    button:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 3px
+    }
+
+    #yes {
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color: #fff;
+      box-shadow: 0 8px 20px var(--shadow)
+    }
+
+    #no {
+      background: var(--bg2);
+      color: var(--soft);
+      border: 2px solid var(--line)
+    }
+
+    #no.run {
+      position: fixed;
+      z-index: 5;
+      transition: left .25s ease, top .25s ease
+    }
+
+    .foot {
+      margin-top: 18px;
+      font-size: 15px;
+      color: var(--soft)
+    }
+
+    .win {
+      display: none
+    }
+
+    .won .ask {
+      display: none
+    }
+
+    .won .win {
+      display: block;
+      animation: pop .6s cubic-bezier(.2, 1.6, .4, 1)
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.4);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    .fall {
+      position: fixed;
+      top: -30px;
+      z-index: 9;
+      pointer-events: none;
+      animation: fall linear forwards
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(112vh) rotate(360deg)
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .bear,
+      #bg span {
+        animation: none
+      }
+
+      .fall {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bg" aria-hidden="true"></div>
+  <main>
+    <div class="card" id="card">
+      <div class="ask">
+        <div class="bear">🧸</div>
+        <h1 id="title">I'm sorry, My Love</h1>
+        <div class="tears">🥺</div>
+        <p class="msg" id="msg">I know mi message bagayla pahije hote, tu vaat baghat hotis mazhi. Parat ny honar mi try karen message bagaycha reply karaycha. Ani Ha voice note pn taken. 🌍💕</p>
+        <ul>
+          <li>Mi message takayla vishru shakto pn tula ny Cutiee💖</li>
+          <li>Jri mobile navta sobat tri pn tuzhi Athvan trr yetach hoti mla💌</li>
+          <li>Mazhi Rasmalia ahes na Raag sodun de na🥹</li>
+        </ul>
+        <h2>Will you forgive me? 🥹👉👈</h2>
+        <div class="btns">
+          <button id="yes">Yes 💖</button>
+          <button id="no">No 😢</button>
+        </div>
+      </div>
+      <div class="win">
+        <div class="bear">🐻💞🐰</div>
+        <h1>Yayyy! 🎉</h1>
+        <p class="msg">Hussshhh ! Gela Raag ! Mazhi jaan , Mazhi Sweetie.💃🕺💗
+        </p>
+        <div class="tears">😍💕🌸✨🥰</div>
+        <p class="foot" id="from">Forever tuzhach Piku💝</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var to = (q.get('to') || 'My Love').slice(0, 30), from = (q.get('from') || 'Your Boyfriend').slice(0, 30);
+      document.getElementById('title').textContent = "I'm sorry, " + to;
+      document.getElementById('from').textContent = "Forever yours, " + from + " 💝";
+
+      var em = ['💗', '💖', '🌸', '🧸', '💕', '🍓', '✨', '🐰', '💌', '🦋'], bg = document.getElementById('bg');
+      for (var i = 0; i < 22; i++) {
+        var s = document.createElement('span'); s.textContent = em[i % em.length];
+        s.style.left = Math.random() * 100 + '%'; s.style.fontSize = (16 + Math.random() * 22) + 'px';
+        s.style.animationDuration = (9 + Math.random() * 10) + 's'; s.style.animationDelay = (-Math.random() * 15) + 's'; bg.appendChild(s);
+      }
+
+      var yes = document.getElementById('yes'), no = document.getElementById('no'), msg = document.getElementById('msg');
+      var lines = ["Are you sure? 🥺", "Pleaseee 🥹", "Don't do this 💔", "I'll buy pizza 🍕", "One more chance? 🧸", "Look at my puppy eyes 🐶", "Okay now I'm crying 😭"];
+      var notes = ["I promise to do better. 🥺", "Look, the Yes button is getting bigger 👀", "It only wants your love 💕", "I'll never repeat it, pinky promise 🤙"];
+      var n = 0;
+
+      function dodge(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        n++;
+        no.textContent = lines[(n - 1) % lines.length];
+        msg.textContent = notes[(n - 1) % notes.length];
+        yes.style.transform = 'scale(' + Math.min(1 + n * 0.12, 1.6) + ')';
+        no.classList.add('run');
+        var w = no.offsetWidth, h = no.offsetHeight, m = 12;
+        no.style.left = (m + Math.random() * (innerWidth - w - 2 * m)) + 'px';
+        no.style.top = (m + Math.random() * (innerHeight - h - 2 * m)) + 'px';
+      }
+      no.addEventListener('pointerenter', dodge);
+      no.addEventListener('pointerdown', dodge);
+      no.addEventListener('click', dodge);
+
+      yes.addEventListener('click', function () {
+        document.getElementById('card').classList.add('won');
+        no.style.display = 'none';
+        var f = ['💖', '💗', '💕', '🌸', '🧸', '🎉', '😍', '💝', '✨'];
+        for (var i = 0; i < 45; i++) {
+          (function (i) {
+            setTimeout(function () {
+              var s = document.createElement('span'); s.className = 'fall'; s.textContent = f[i % f.length];
+              s.style.left = Math.random() * 100 + 'vw'; s.style.fontSize = (20 + Math.random() * 26) + 'px';
+              s.style.animationDuration = (3 + Math.random() * 3) + 's'; document.body.appendChild(s);
+              setTimeout(function () { s.remove() }, 6500);
+            }, i * 70);
+          })(i);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+
+</html>
